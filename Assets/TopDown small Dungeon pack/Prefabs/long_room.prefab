@@ -2230,8 +2230,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1717364ee12c1bc4b99e010e8858bf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xCoord: 2.5
+  xCoord: 7.5
   zCoord: 0
+  idDoor: arriba
+  conected: 0
+  modifier: 3
 --- !u!1 &1585270266731048
 GameObject:
   m_ObjectHideFlags: 0
@@ -2650,8 +2653,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1717364ee12c1bc4b99e010e8858bf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xCoord: 2.5
+  xCoord: 7.5
   zCoord: 0
+  idDoor: abajo
+  conected: 0
+  modifier: 0
 --- !u!1 &1660031853410934
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,7 +2905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d83b86f2161c645b35c50df3d540ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numDoors: 2
+  numDoors: 1
 --- !u!1 &1692339280597648
 GameObject:
   m_ObjectHideFlags: 0

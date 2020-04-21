@@ -1414,8 +1414,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1717364ee12c1bc4b99e010e8858bf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xCoord: 2.5
+  xCoord: 7.5
   zCoord: 0
+  idDoor: abajo
+  conected: 0
+  modifier: 0
 --- !u!1 &1286967346355878
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,8 +1465,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1717364ee12c1bc4b99e010e8858bf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xCoord: 2
-  zCoord: 0.5
+  xCoord: 6
+  zCoord: 1.5
+  idDoor: derecha
+  conected: 0
+  modifier: 3
 --- !u!1 &1312534038751514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,8 +1564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6d83b86f2161c645b35c50df3d540ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numDoors: 3
-  radius: 0
+  numDoors: 2
 --- !u!1 &1356063496396064
 GameObject:
   m_ObjectHideFlags: 0
@@ -4846,5 +4851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1717364ee12c1bc4b99e010e8858bf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xCoord: 2
-  zCoord: 0.5
+  xCoord: 6
+  zCoord: 1.5
+  idDoor: izquierda
+  conected: 0
+  modifier: 0

@@ -7,6 +7,12 @@ public class Door : MonoBehaviour
 
     public float xCoord;
     public float zCoord;
+
+    public string idDoor;
+
+    public bool conected = false;
+
+    public float modifier = 0;
     // Start is called before the first frame update
     void Start()
     {
