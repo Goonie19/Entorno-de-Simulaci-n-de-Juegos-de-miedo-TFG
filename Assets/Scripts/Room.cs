@@ -6,6 +6,11 @@ public class Room : MonoBehaviour
 {
 
     public int numDoors;
+    public float radius;
+
+    public bool big;
+
+    public int id;
     // Start is called before the first frame update
     void Start()
     {

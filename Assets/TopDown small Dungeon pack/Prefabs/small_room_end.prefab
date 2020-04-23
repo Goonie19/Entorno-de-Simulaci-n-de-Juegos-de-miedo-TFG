@@ -336,6 +336,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numDoors: 0
+  radius: 6.5
+  big: 0
 --- !u!1 &1107571937984948
 GameObject:
   m_ObjectHideFlags: 0
@@ -3944,6 +3946,8 @@ MonoBehaviour:
   xCoord: 4.5
   zCoord: 1.5
   idDoor: abajo
+  conected: 0
+  modifier: 0
 --- !u!1 &1958291992584998
 GameObject:
   m_ObjectHideFlags: 0

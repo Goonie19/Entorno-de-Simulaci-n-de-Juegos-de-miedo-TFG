@@ -7,18 +7,31 @@ public class DungeonGenerator : MonoBehaviour {
     public GameObject firstRoom;
     public GameObject player;
 
-    private int numRooms = 10;
+    public GameObject wall;
+
+    public int numRooms;
 
     public List<GameObject> RoomList;
-    public List<GameObject> RoomListEnd;
     private List<GameObject> Dungeon = new List<GameObject>();
 
-    public bool Factibilidad(GameObject room, int sizeOfList) {
+    private int numDoors = 0;
+
+    private int lastIndex = 0;
+
+    public bool Factibilidad(GameObject room, Vector3 position, int indexAvoid) {
 
         bool fact = true;
 
-        if (room.GetComponent<Room>().numDoors + sizeOfList > numRooms - 1 && sizeOfList > 0)
-            fact = false;
+        int j = 0;
+
+        while (fact && j < Dungeon.Count)
+        {
+            if(Vector3.Distance(Dungeon[j].transform.position, position) < room.GetComponent<Room>().radius + Dungeon[j].GetComponent<Room>().radius && j !=indexAvoid)
+            {            
+                fact = false;
+            }
+            ++j;
+        }
 
         return fact;
     }
@@ -29,7 +42,7 @@ public class DungeonGenerator : MonoBehaviour {
         {
             case 90:
                 {
-                    for(int i = 0; i < room.GetComponent<Room>().numDoors; ++i)
+                    for(int i = 0; i < room.GetComponent<Room>().numDoors + 1; ++i)
                     {
                         switch(room.transform.GetChild(i).gameObject.GetComponent<Door>().idDoor)
                         {
@@ -52,7 +65,7 @@ public class DungeonGenerator : MonoBehaviour {
 
             case 180:
                 {
-                    for(int i = 0; i < room.GetComponent<Room>().numDoors; ++i)
+                    for(int i = 0; i < room.GetComponent<Room>().numDoors + 1; ++i)
                     {
                         switch(room.transform.GetChild(i).gameObject.GetComponent<Door>().idDoor)
                         {
@@ -73,7 +86,7 @@ public class DungeonGenerator : MonoBehaviour {
 
             case -90:
                 {
-                    for(int i = 0; i < room.GetComponent<Room>().numDoors; ++i)
+                    for(int i = 0; i < room.GetComponent<Room>().numDoors + 1; ++i)
                     {
                         switch(room.transform.GetChild(i).gameObject.GetComponent<Door>().idDoor)
                         {
@@ -93,35 +106,11 @@ public class DungeonGenerator : MonoBehaviour {
                 };break;
         }
     }
-
-    public List<GameObject> CopyList()
-    {
-        List<GameObject> copy = new List<GameObject>();
-
-        for(int i = 0; i < RoomList.Count; ++i)
-        {
-            copy.Add(RoomList[i]);
-        }
-
-        return copy;
-    }
-
-    public List<GameObject> CopyListEnd()
-    {
-        List<GameObject> copy = new List<GameObject>();
-
-        for (int i = 0; i < RoomListEnd.Count; ++i)
-        {
-            copy.Add(RoomListEnd[i]);
-        }
-
-        return copy;
-    }
-
+    
     public Queue<GameObject> AddDoors(Queue<GameObject> Doors, GameObject room, int numDoors)
     {
 
-        for(int i = 0; i < numDoors; ++i)
+        for(int i = 0; i < numDoors + 1; ++i)
         {
             if(!room.transform.GetChild(i).gameObject.GetComponent<Door>().conected)
             {
@@ -132,8 +121,9 @@ public class DungeonGenerator : MonoBehaviour {
         return Doors;
     }
 
-    public void createRoom(GameObject room, GameObject door)
+    public bool createRoom(GameObject room, GameObject door)
     {
+        bool fact = true;
         Quaternion rot = room.transform.rotation;
         switch(door.GetComponent<Door>().idDoor)
         {
@@ -145,28 +135,50 @@ public class DungeonGenerator : MonoBehaviour {
                     pos.x = pos.x - room.transform.GetChild(0).gameObject.GetComponent<Door>().xCoord - 3 + door.gameObject.GetComponent<Door>().modifier;
                     pos.z = pos.z + room.transform.GetChild(0).gameObject.GetComponent<Door>().zCoord;
 
-                    GameObject r = Instantiate(room, pos, rot);
+                    int indexAvoid = door.transform.parent.GetComponent<Room>().id;
 
-                    r.transform.GetChild(0).gameObject.GetComponent<Door>().conected = true;
+                    fact = Factibilidad(room, pos, indexAvoid);
 
-                    Dungeon.Add(r);
+                    if(fact)
+                    {
+                        GameObject r = Instantiate(room, pos, rot);
 
-                    CambiarPuertas(r, -90);
+                        r.transform.GetChild(0).gameObject.GetComponent<Door>().conected = true;
+                        door.gameObject.GetComponent<Door>().conected = true;
+
+                        r.GetComponent<Room>().id = lastIndex + 1;
+                        lastIndex++;
+
+                        Dungeon.Add(r);
+
+                        CambiarPuertas(Dungeon[Dungeon.Count - 1], -90);
+                    }
 
                 };break;
 
             case "arriba":
                 {
-                    Quaternion rotation = room.transform.rotation;
+                    
 
                     Vector3 pos = door.transform.position;
                     pos.z = pos.z + room.transform.GetChild(0).gameObject.GetComponent<Door>().xCoord + 3 - door.gameObject.GetComponent<Door>().modifier;
                     pos.x = pos.x + room.transform.GetChild(0).gameObject.GetComponent<Door>().zCoord;
 
-                    GameObject r = Instantiate(room, pos, rotation);
-                    r.transform.GetChild(0).gameObject.GetComponent<Door>().conected = true;
+                    int indexAvoid = door.transform.parent.GetComponent<Room>().id;
 
-                    Dungeon.Add(r);
+                    fact = Factibilidad(room, pos, indexAvoid);
+
+                    if(fact)
+                    {
+                        GameObject r = Instantiate(room, pos, rot);
+                        r.transform.GetChild(0).gameObject.GetComponent<Door>().conected = true;
+                        door.gameObject.GetComponent<Door>().conected = true;
+
+                        r.GetComponent<Room>().id = lastIndex + 1;
+                        lastIndex++;
+
+                        Dungeon.Add(r);
+                    }
                 }; break;
 
             case "derecha":
@@ -175,14 +187,28 @@ public class DungeonGenerator : MonoBehaviour {
 
                     Vector3 pos = door.transform.position;
                     pos.x = pos.x + room.transform.GetChild(0).gameObject.GetComponent<Door>().xCoord + 3 - door.gameObject.GetComponent<Door>().modifier;
-                    pos.z = pos.z + room.transform.GetChild(0).gameObject.GetComponent<Door>().zCoord;
+                    if(room.GetComponent<Room>().big)
+                        pos.z = pos.z +(-1 *  room.transform.GetChild(0).gameObject.GetComponent<Door>().zCoord);
+                    else
+                        pos.z = pos.z + room.transform.GetChild(0).gameObject.GetComponent<Door>().zCoord;
 
-                    GameObject r = Instantiate(room, pos, rot);
-                    r.transform.GetChild(0).gameObject.GetComponent<Door>().conected = true;
+                    int indexAvoid = door.transform.parent.GetComponent<Room>().id;
 
-                    Dungeon.Add(r);
+                    fact = Factibilidad(room, pos, indexAvoid);
 
-                    CambiarPuertas(r, 90);
+                    if(fact)
+                    {
+                        GameObject r = Instantiate(room, pos, rot);
+                        r.transform.GetChild(0).gameObject.GetComponent<Door>().conected = true;
+                        door.gameObject.GetComponent<Door>().conected = true;
+
+                        r.GetComponent<Room>().id = lastIndex + 1;
+                        lastIndex++;
+
+                        Dungeon.Add(r);
+
+                        CambiarPuertas(Dungeon[Dungeon.Count - 1], 90);
+                    }
                 }; break;
             
             case "abajo":
@@ -193,16 +219,27 @@ public class DungeonGenerator : MonoBehaviour {
                     pos.x = pos.x - room.transform.GetChild(0).gameObject.GetComponent<Door>().zCoord;
                     pos.z = pos.z - room.transform.GetChild(0).gameObject.GetComponent<Door>().xCoord - 3 + door.gameObject.GetComponent<Door>().modifier;
 
-                    GameObject r = Instantiate(room, pos, rot);
-                    r.transform.GetChild(0).gameObject.GetComponent<Door>().conected = true;
+                    int indexAvoid = door.transform.parent.GetComponent<Room>().id;
 
-                    Dungeon.Add(r);
+                    fact = Factibilidad(room, pos, indexAvoid);
 
-                    CambiarPuertas(r, 180);
+                    if(fact)
+                    {
+                        GameObject r = Instantiate(room, pos, rot);
+                        r.transform.GetChild(0).gameObject.GetComponent<Door>().conected = true;
+                        door.gameObject.GetComponent<Door>().conected = true;
+                        r.GetComponent<Room>().id = lastIndex + 1;
+                        lastIndex++;
+
+                        Dungeon.Add(r);
+
+                        CambiarPuertas(Dungeon[Dungeon.Count - 1], 180);
+                    }
 
                     
                 };break;
         }
+        return fact;
     }
 
     // Start is called before the first frame update
@@ -211,33 +248,53 @@ public class DungeonGenerator : MonoBehaviour {
 
         Vector3 SpawnPos = new Vector3(0, 0.5f, 0);
 
+        int intentos = 300;
+
         Queue<GameObject> Doors = new Queue<GameObject>();
         List<GameObject> Rooms = new List<GameObject>(RoomList);
-        List<GameObject> RoomsEnd = CopyListEnd();
+        
 
         Dungeon.Add(Instantiate(firstRoom));
 
         for (int i = 0; i < 3; ++i)
             Doors.Enqueue(Dungeon[0].transform.GetChild(i).gameObject);
+
+        numDoors = 0;
         
 
-        while (Doors.Count < numRooms - 1 && Doors.Count > 0) {
+        while (numDoors < numRooms - 1 && Doors.Count > 0) {
 
             int r = Random.Range(0, Rooms.Count -1);
 
-    
-            createRoom(Rooms[r].gameObject, Doors.Dequeue());
-            Doors = AddDoors(Doors, Dungeon[Dungeon.Count - 1].gameObject, Dungeon[Dungeon.Count -1].transform.GetComponent<Room>().numDoors);
+            if (createRoom(Rooms[r].gameObject, Doors.Peek())) {
+                Doors.Dequeue();
+                Doors = AddDoors(Doors, Dungeon[Dungeon.Count - 1].gameObject, Dungeon[Dungeon.Count - 1].transform.GetComponent<Room>().numDoors);
+                numDoors += 1;
+                intentos = 300;
+            } else
+            {
+                --intentos;
+            }
+            if (intentos <= 0 && Doors.Count > 0)
+            {
+                Doors.Dequeue();
+                intentos = 300;
+            }
         }
 
-       /*while (roomspawned < numRooms && Doors.Count > 0) {
-            int r = Random.Range(0,2);
-
-            createRoom(RoomsEnd[r].gameObject, Doors[0].gameObject);
-            Doors.RemoveAt(0);
-
-            roomspawned++;
-        }*/
+        for (int s = 0; s < Dungeon.Count; ++s)
+        {
+            for (int j = 0; j < Dungeon[s].GetComponent<Room>().numDoors + 1; ++j)
+            {
+                if(!Dungeon[s].transform.GetChild(j).GetComponent<Door>().conected)
+                {
+                    Vector3 pos = Dungeon[s].transform.GetChild(j).GetChild(1).position;
+                    Quaternion rot = Dungeon[s].transform.GetChild(j).GetChild(1).rotation;
+                    Destroy(Dungeon[s].transform.GetChild(j).GetChild(1).gameObject);
+                    Instantiate(wall, pos, rot);
+                }
+            }
+        }
 
         Instantiate(player, SpawnPos, player.transform.rotation);
     }

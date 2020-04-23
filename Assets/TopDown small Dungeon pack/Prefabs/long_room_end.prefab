@@ -62,6 +62,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numDoors: 0
+  radius: 9
+  big: 0
+  id: 0
 --- !u!1 &1023228856399372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1137,9 +1140,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1717364ee12c1bc4b99e010e8858bf67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xCoord: 10.5
+  xCoord: 9.5
   zCoord: 0
   idDoor: abajo
+  conected: 0
+  modifier: 3
 --- !u!1 &1268517167876508
 GameObject:
   m_ObjectHideFlags: 0

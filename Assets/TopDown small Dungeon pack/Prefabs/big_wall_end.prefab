@@ -254,6 +254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numDoors: 0
+  radius: 8.5
+  big: 1
 --- !u!1 &1086752151031270
 GameObject:
   m_ObjectHideFlags: 0
