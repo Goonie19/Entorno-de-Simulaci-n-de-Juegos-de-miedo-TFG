@@ -6,6 +6,7 @@ public class Room : MonoBehaviour
 {
 
     public int numDoors;
+    public int numWalls;
     public float radius;
 
     public bool big;

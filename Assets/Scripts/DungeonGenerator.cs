@@ -7,12 +7,17 @@ public class DungeonGenerator : MonoBehaviour {
     public GameObject firstRoom;
     public GameObject player;
 
+    private FurnitureGenerator FurnitureGenerator;
+
     public GameObject wall;
 
     public int numRooms;
 
     public List<GameObject> RoomList;
     private List<GameObject> Dungeon = new List<GameObject>();
+
+    public List<GameObject> angFurnitureList;
+    public List<GameObject> wallFloorFurnitureList;
 
     private int numDoors = 0;
 
@@ -295,6 +300,10 @@ public class DungeonGenerator : MonoBehaviour {
                 }
             }
         }
+
+        FurnitureGenerator = new FurnitureGenerator(Dungeon, angFurnitureList, wallFloorFurnitureList);
+
+        FurnitureGenerator.generateFurniture();
 
         Instantiate(player, SpawnPos, player.transform.rotation);
     }

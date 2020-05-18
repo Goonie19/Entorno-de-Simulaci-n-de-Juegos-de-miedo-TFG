@@ -181,3 +181,15 @@ MonoBehaviour:
   - {fileID: 1874152172345462, guid: 9fc1d088f815a58478539320ba79fb3a, type: 3}
   - {fileID: 1873529298845126, guid: a17445010f4f32b4ebf9d8d0bffa230c, type: 3}
   - {fileID: 1813262456749870, guid: e4dae73f74dec4f4d8d07996bfaaf449, type: 3}
+  angFurnitureList:
+  - {fileID: 100000, guid: 36f258ea05b6e8644ae91a5b98eba017, type: 3}
+  - {fileID: 100000, guid: ca7ff24101826a141b95bc27f8d49174, type: 3}
+  - {fileID: 143930, guid: 08e1ecba9be6e5b418edf1bf869b4e00, type: 3}
+  - {fileID: 112034, guid: 443b16cc2c749c1449edeccb23f05576, type: 3}
+  wallFloorFurnitureList:
+  - {fileID: 118020, guid: 94a4e3eafbc7e2942931221d56b6e8d6, type: 3}
+  - {fileID: 193696, guid: a5d3bb1b5f474bd46b01dad20147a6be, type: 3}
+  - {fileID: 113656, guid: b2104cd97435ca840ad296caa01cb4ff, type: 3}
+  - {fileID: 177444, guid: dd95ee52b2d3a914baa7f842b3cf7592, type: 3}
+  - {fileID: 100006, guid: 174108d41170dfe4b99e461fa4207ec1, type: 3}
+  - {fileID: 0}

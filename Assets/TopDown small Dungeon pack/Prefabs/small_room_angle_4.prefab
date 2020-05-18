@@ -339,6 +339,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4430327621171540}
+  - component: {fileID: 5627666070080698294}
   m_Layer: 0
   m_Name: wall_angle_roof (1)
   m_TagString: Untagged
@@ -361,8 +362,20 @@ Transform:
   - {fileID: 4083428874897772}
   - {fileID: 4144088847131162}
   m_Father: {fileID: 4270769487998006}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &5627666070080698294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117736621274000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02bf7ad45c91e44e8a82b787ec2b653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1175251953231198
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,6 +385,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4998994712571910}
+  - component: {fileID: 3660155461009218550}
   m_Layer: 0
   m_Name: wall_base_roof (15)
   m_TagString: Untagged
@@ -394,8 +408,20 @@ Transform:
   - {fileID: 4757792250315586}
   - {fileID: 4218361046986438}
   m_Father: {fileID: 4270769487998006}
-  m_RootOrder: 12
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -269.999, z: 0}
+--- !u!114 &3660155461009218550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175251953231198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44fbe23269ee18a498418f0988a99f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1191184867966112
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,6 +617,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4171313862516982}
+  - component: {fileID: 2519309963067196200}
   m_Layer: 0
   m_Name: wall_angle_roof
   m_TagString: Untagged
@@ -613,8 +640,20 @@ Transform:
   - {fileID: 4539106704326190}
   - {fileID: 4366262388441108}
   m_Father: {fileID: 4270769487998006}
-  m_RootOrder: 4
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2519309963067196200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213053336422382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02bf7ad45c91e44e8a82b787ec2b653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1228268091389708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +1058,7 @@ Transform:
   - {fileID: 4143883616827318}
   - {fileID: 4402027308731078}
   m_Father: {fileID: 4270769487998006}
-  m_RootOrder: 5
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362007959516658
 GameObject:
@@ -1123,6 +1162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4883189284953738}
+  - component: {fileID: 7707139751512631637}
   m_Layer: 0
   m_Name: wall_angle_roof (2)
   m_TagString: Untagged
@@ -1145,8 +1185,20 @@ Transform:
   - {fileID: 4565541143824804}
   - {fileID: 4544198430187156}
   m_Father: {fileID: 4270769487998006}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 180.00002, z: 0}
+--- !u!114 &7707139751512631637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366446576253608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02bf7ad45c91e44e8a82b787ec2b653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1412197425170394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,6 +1487,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4526270482896498}
+  - component: {fileID: 2135005312870720874}
   m_Layer: 0
   m_Name: wall_angle_roof (3)
   m_TagString: Untagged
@@ -1457,8 +1510,20 @@ Transform:
   - {fileID: 4930343990217170}
   - {fileID: 4632464248748534}
   m_Father: {fileID: 4270769487998006}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &2135005312870720874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1421716636331938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02bf7ad45c91e44e8a82b787ec2b653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1453773941177994
 GameObject:
   m_ObjectHideFlags: 0
@@ -1468,6 +1533,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4657919495605426}
+  - component: {fileID: 4178203842903904445}
   m_Layer: 0
   m_Name: wall_base_roof (2)
   m_TagString: Untagged
@@ -1490,8 +1556,20 @@ Transform:
   - {fileID: 4027957585554794}
   - {fileID: 4221042475304788}
   m_Father: {fileID: 4270769487998006}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4178203842903904445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453773941177994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44fbe23269ee18a498418f0988a99f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1456513781706364
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,6 +1579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4268942592180090}
+  - component: {fileID: 3770467717387792353}
   m_Layer: 0
   m_Name: wall_base_roof (8)
   m_TagString: Untagged
@@ -1523,8 +1602,20 @@ Transform:
   - {fileID: 4055000506963418}
   - {fileID: 4667104936358300}
   m_Father: {fileID: 4270769487998006}
-  m_RootOrder: 11
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &3770467717387792353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456513781706364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44fbe23269ee18a498418f0988a99f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1472186979574986
 GameObject:
   m_ObjectHideFlags: 0
@@ -1999,6 +2090,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4914486160690684}
+  - component: {fileID: 4362356481313935550}
   m_Layer: 0
   m_Name: wall_base_roof (4)
   m_TagString: Untagged
@@ -2021,8 +2113,20 @@ Transform:
   - {fileID: 4360830908177146}
   - {fileID: 4638677917030868}
   m_Father: {fileID: 4270769487998006}
-  m_RootOrder: 8
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
+--- !u!114 &4362356481313935550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1578800118402928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44fbe23269ee18a498418f0988a99f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1585363599775910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3231,15 +3335,15 @@ Transform:
   - {fileID: 4158905149306932}
   - {fileID: 4004383745492374}
   - {fileID: 4436222988194722}
-  - {fileID: 4171313862516982}
-  - {fileID: 4755210583958946}
   - {fileID: 4657919495605426}
-  - {fileID: 4430327621171540}
   - {fileID: 4914486160690684}
-  - {fileID: 4883189284953738}
-  - {fileID: 4526270482896498}
   - {fileID: 4268942592180090}
   - {fileID: 4998994712571910}
+  - {fileID: 4171313862516982}
+  - {fileID: 4430327621171540}
+  - {fileID: 4883189284953738}
+  - {fileID: 4526270482896498}
+  - {fileID: 4755210583958946}
   - {fileID: 1609916066674130084}
   - {fileID: 5999839030226197079}
   m_Father: {fileID: 0}
@@ -3258,6 +3362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numDoors: 3
+  numWalls: 0
   radius: 7.5
   big: 1
   id: 0
