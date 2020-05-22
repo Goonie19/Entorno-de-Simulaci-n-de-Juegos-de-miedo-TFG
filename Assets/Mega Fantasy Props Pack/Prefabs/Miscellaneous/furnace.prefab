@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3308242}
   - component: {fileID: 2352856}
   - component: {fileID: 6465854}
+  - component: {fileID: 2134608082916936334}
   m_Layer: 0
   m_Name: furnace
   m_TagString: Untagged
@@ -95,3 +96,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 438ec4b0fc28dff4db684ac15115a153, type: 3}
+--- !u!114 &2134608082916936334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcb7cd5138840a48af7128cd1c9cafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 3
+  yDistance: 0

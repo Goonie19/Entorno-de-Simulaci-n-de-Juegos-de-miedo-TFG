@@ -7,6 +7,7 @@ public class Decoration : MonoBehaviour
 
     public float radius;
 
+    public float yDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,4 +19,5 @@ public class Decoration : MonoBehaviour
     {
         
     }
+
 }

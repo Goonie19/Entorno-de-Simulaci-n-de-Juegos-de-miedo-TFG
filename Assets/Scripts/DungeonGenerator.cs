@@ -10,6 +10,7 @@ public class DungeonGenerator : MonoBehaviour {
     private FurnitureGenerator FurnitureGenerator;
 
     public GameObject wall;
+    public GameObject lightning;
 
     public int numRooms;
 
@@ -112,6 +113,8 @@ public class DungeonGenerator : MonoBehaviour {
         }
     }
     
+
+
     public Queue<GameObject> AddDoors(Queue<GameObject> Doors, GameObject room, int numDoors)
     {
 
@@ -301,7 +304,7 @@ public class DungeonGenerator : MonoBehaviour {
             }
         }
 
-        FurnitureGenerator = new FurnitureGenerator(Dungeon, angFurnitureList, wallFloorFurnitureList);
+        FurnitureGenerator = new FurnitureGenerator(Dungeon, angFurnitureList, wallFloorFurnitureList, lightning);
 
         FurnitureGenerator.generateFurniture();
 

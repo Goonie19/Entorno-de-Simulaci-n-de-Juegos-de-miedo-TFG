@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3377810}
   - component: {fileID: 2323546}
   - component: {fileID: 6445534}
+  - component: {fileID: 6550489574236973970}
   m_Layer: 0
   m_Name: cupboard
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 193696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.75, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -94,3 +95,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 4300000, guid: 8a0c0e48293f85741aff53030eac23d0, type: 3}
+--- !u!114 &6550489574236973970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fcb7cd5138840a48af7128cd1c9cafb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 1.75
