@@ -12,13 +12,14 @@ public class DungeonGenerator : MonoBehaviour {
     public GameObject wall;
     public GameObject lightning;
 
-    public int numRooms;
+    private int numRooms = LevelManager.getRooms();
 
     public List<GameObject> RoomList;
     private List<GameObject> Dungeon = new List<GameObject>();
 
     public List<GameObject> angFurnitureList;
     public List<GameObject> wallFloorFurnitureList;
+    public List<GameObject> FloorFurniture;
 
     private int numDoors = 0;
 
@@ -195,7 +196,7 @@ public class DungeonGenerator : MonoBehaviour {
 
                     Vector3 pos = door.transform.position;
                     pos.x = pos.x + room.transform.GetChild(0).gameObject.GetComponent<Door>().xCoord + 3 - door.gameObject.GetComponent<Door>().modifier;
-                    if(room.GetComponent<Room>().big)
+                    if(room.GetComponent<Room>().room)
                         pos.z = pos.z +(-1 *  room.transform.GetChild(0).gameObject.GetComponent<Door>().zCoord);
                     else
                         pos.z = pos.z + room.transform.GetChild(0).gameObject.GetComponent<Door>().zCoord;
@@ -304,7 +305,7 @@ public class DungeonGenerator : MonoBehaviour {
             }
         }
 
-        FurnitureGenerator = new FurnitureGenerator(Dungeon, angFurnitureList, wallFloorFurnitureList, lightning);
+        FurnitureGenerator = new FurnitureGenerator(Dungeon, angFurnitureList, wallFloorFurnitureList, FloorFurniture, lightning);
 
         FurnitureGenerator.generateFurniture();
 

@@ -9,13 +9,15 @@ public class FurnitureGenerator : MonoBehaviour
 
     private List<GameObject> wallFloorFurniture;
 
+    private List<GameObject> FloorFurniture;
+
     private List<GameObject> furniture;
 
     private GameObject lightning;
 
     private List<GameObject> dungeon;
 
-    private int maxLightsRoom = 10;
+    private float lightPercent = LevelManager.getLight();
 
     public bool Fact(GameObject obj, Vector3 pos, int indexRoom)
     {
@@ -33,23 +35,30 @@ public class FurnitureGenerator : MonoBehaviour
         }
 
 
-
+        for(int l = 0; l < dungeon[indexRoom].GetComponent<Room>().numDoors + 1 && fact; ++l)
+        {
+            if (Vector3.Distance(pos, dungeon[indexRoom].GetComponent<Room>().transform.GetChild(l).transform.position) <
+               obj.transform.GetComponent<Decoration>().radius + dungeon[indexRoom].GetComponent<Room>().transform.GetChild(l).GetComponent<Door>().getRadius())
+                fact = false;
+        }
 
         return fact;
     }
 
-    public FurnitureGenerator(List<GameObject> dungeon, List<GameObject> angFurnitureList, List<GameObject> wallFloorFurniture, GameObject lightning)
+    public FurnitureGenerator(List<GameObject> dungeon, List<GameObject> angFurnitureList, List<GameObject> wallFloorFurniture, List<GameObject> FloorFurniture, GameObject lightning)
     {
         this.dungeon = dungeon;
         this.angFurnitureList = angFurnitureList;
         this.wallFloorFurniture = wallFloorFurniture;
         furniture = new List<GameObject>();
+        this.FloorFurniture = FloorFurniture;
         this.lightning = lightning;
     }
 
     public void GenerateFurnitureRoom(int i)
     {
-        int maxL = dungeon[i].transform.GetComponent<Room>().maxLights;
+        float maxLf = dungeon[i].transform.GetComponent<Room>().maxLights * lightPercent;
+        int maxL = (int) maxLf;
         int intentos = 300;
 
         for(int j = 0; j < dungeon[i].transform.childCount; ++j)
@@ -99,31 +108,65 @@ public class FurnitureGenerator : MonoBehaviour
                 ++l;
         }
 
-
-        l = 0;
+        //instatiating wall furniture
+        l = dungeon[i].transform.childCount - 1;
         int maxFurnitureWall = dungeon[i].transform.GetComponent<Room>().maxFurnitureWall;
         intentos = 300;
 
-        while (l < dungeon[i].transform.childCount && maxFurnitureWall > 0)
+        while (l > 0 && maxFurnitureWall > 0)
         {
             if (dungeon[i].transform.GetChild(l).GetComponent<Wall>() && intentos > 0)
             {
+
+                Quaternion rot2 = dungeon[i].transform.GetChild(l).transform.rotation;
                 int r = Random.Range(0, wallFloorFurniture.Count);
 
-                if (Fact(wallFloorFurniture[r], dungeon[i].transform.GetChild(l).transform.position, i))
-                {
+                Vector3 pos = dungeon[i].transform.GetChild(l).transform.GetChild(0).transform.position;
+
+                if (rot2.eulerAngles.y > -1 && rot2.eulerAngles.y < 1)
+                    pos.x -= wallFloorFurniture[r].GetComponent<Decoration>().wallDistance;
+                if (rot2.eulerAngles.y > 89 && rot2.eulerAngles.y < 91)
+                    pos.z += wallFloorFurniture[r].GetComponent<Decoration>().wallDistance;
+                if (rot2.eulerAngles.y > 179 && rot2.eulerAngles.y < 181)
+                    pos.x += wallFloorFurniture[r].GetComponent<Decoration>().wallDistance;
+                if (rot2.eulerAngles.y > 269 && rot2.eulerAngles.y < 271)
+                    pos.z -= wallFloorFurniture[r].GetComponent<Decoration>().wallDistance;
+
+
+                if (Fact(wallFloorFurniture[r], dungeon[i].transform.GetChild(l).transform.position, i)) {
                     --maxFurnitureWall;
-                    dungeon[i].transform.GetComponent<Room>().addFurniture(Instantiate(wallFloorFurniture[r], dungeon[i].transform.GetChild(l).transform.position, dungeon[i].transform.GetChild(l).transform.rotation));
-                    ++l;
+                    dungeon[i].transform.GetComponent<Room>().addFurniture(Instantiate(wallFloorFurniture[r], pos, dungeon[i].transform.GetChild(l).transform.rotation * Quaternion.Euler(0, 90, 0)));
+                    --l;
                 }
                 else
                     --intentos;
             }
             else
-                ++l;
+                --l;
 
         }
 
+        //instantiating floot furniture
+        l = dungeon[i].transform.childCount - 2;
+        intentos = 300;
+        int floors = dungeon[i].GetComponent<Room>().floors;
+
+        while(floors > 0 && i != 0)
+        {
+            if (dungeon[i].transform.GetChild(l).GetComponent<Floor>() && intentos > 0)
+            {
+                int r = Random.Range(0, FloorFurniture.Count);
+
+                if (Fact(FloorFurniture[r], dungeon[i].transform.GetChild(l).transform.position, i))
+                {
+                    --floors;
+                    dungeon[i].transform.GetComponent<Room>().addFurniture(Instantiate(FloorFurniture[r], dungeon[i].transform.GetChild(l).transform.position, dungeon[i].transform.GetChild(l).transform.rotation));
+                    --l;
+                }
+                else
+                    --intentos;
+            }
+        }
 
     }
 

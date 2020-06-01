@@ -753,6 +753,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4670702194785972}
+  - component: {fileID: 5922566337724073564}
   m_Layer: 0
   m_Name: flor_base (1)
   m_TagString: Untagged
@@ -778,6 +779,18 @@ Transform:
   m_Father: {fileID: 4490042494793750}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5922566337724073564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1249704969004276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf2e1bff2bc921478ebb1db3df942c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1253575451639814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1698,7 +1711,7 @@ Transform:
   - {fileID: 4696420784788262}
   - {fileID: 4752193649170062}
   m_Father: {fileID: 4490042494793750}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -269.999, z: 0}
 --- !u!114 &865285456048360960
 MonoBehaviour:
@@ -2162,7 +2175,7 @@ Transform:
   - {fileID: 4382051336823754}
   - {fileID: 4782791738254376}
   m_Father: {fileID: 4490042494793750}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6202190758522786792
 MonoBehaviour:
@@ -3977,10 +3990,10 @@ Transform:
   - {fileID: 4828088240594216}
   - {fileID: 4680124848702158}
   - {fileID: 4331925774259492}
-  - {fileID: 4229353250228768}
+  - {fileID: 4676539807199056}
   - {fileID: 4909132352277200}
   - {fileID: 4877183464889878}
-  - {fileID: 4676539807199056}
+  - {fileID: 4229353250228768}
   - {fileID: 4300756555173002}
   - {fileID: 4159562696411548}
   - {fileID: 4761303826830016}
@@ -4008,7 +4021,8 @@ MonoBehaviour:
   maxLights: 5
   maxFurnitureWall: 4
   maxFurnitureFloor: 0
-  big: 1
+  room: 1
+  floors: 1
   id: 0
 --- !u!1 &1887177092645460
 GameObject:

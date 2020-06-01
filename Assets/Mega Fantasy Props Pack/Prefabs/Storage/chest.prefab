@@ -111,6 +111,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 1.5
   yDistance: 0
+  wallDistance: 0.25
 --- !u!1 &194870
 GameObject:
   m_ObjectHideFlags: 0

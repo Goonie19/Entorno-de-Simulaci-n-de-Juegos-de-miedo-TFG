@@ -12,7 +12,8 @@ public class Room : MonoBehaviour
     public int maxFurnitureWall;
     public int maxFurnitureFloor;
 
-    public bool big;
+    public bool room;
+    public int floors;
 
     private List<GameObject> furnitureOfRoom = new List<GameObject>();
 

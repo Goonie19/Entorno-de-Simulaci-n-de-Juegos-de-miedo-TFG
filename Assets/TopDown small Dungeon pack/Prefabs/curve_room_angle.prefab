@@ -627,7 +627,7 @@ Transform:
   - {fileID: 4499302064636036}
   - {fileID: 4884505108030954}
   m_Father: {fileID: 4647106080786044}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
 --- !u!114 &8469762790671695352
 MonoBehaviour:
@@ -859,7 +859,7 @@ Transform:
   - {fileID: 4406090845405584}
   - {fileID: 4764947473181168}
   m_Father: {fileID: 4647106080786044}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1742639406491232463
 MonoBehaviour:
@@ -998,7 +998,7 @@ Transform:
   - {fileID: 4643723831788488}
   - {fileID: 4594392074343784}
   m_Father: {fileID: 4647106080786044}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1536247221396655709
 MonoBehaviour:
@@ -1230,7 +1230,7 @@ Transform:
   - {fileID: 4431009520099260}
   - {fileID: 4433708798309128}
   m_Father: {fileID: 4647106080786044}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
 --- !u!114 &3795168112362023620
 MonoBehaviour:
@@ -1646,18 +1646,18 @@ Transform:
   m_Children:
   - {fileID: 4184654492532594}
   - {fileID: 4572841478887344}
+  - {fileID: 4765766359326336}
   - {fileID: 4663575705035672}
+  - {fileID: 4703697137150552}
   - {fileID: 4152767577759628}
   - {fileID: 4904497575210486}
   - {fileID: 4646606115842200}
   - {fileID: 4515301580979626}
   - {fileID: 4151036687421562}
-  - {fileID: 4765766359326336}
   - {fileID: 4719812609847082}
   - {fileID: 4956203870691360}
   - {fileID: 4310376343085398}
   - {fileID: 4109430473264484}
-  - {fileID: 4703697137150552}
   - {fileID: 4634358713696046}
   - {fileID: 4730228959481282}
   - {fileID: 4455926111132082}
@@ -1692,6 +1692,8 @@ MonoBehaviour:
   numWalls: 0
   radius: 13
   maxLights: 12
+  maxFurnitureWall: 0
+  maxFurnitureFloor: 0
   big: 0
   id: 0
 --- !u!1 &1191941002339280
@@ -1865,7 +1867,7 @@ Transform:
   - {fileID: 4749782192135940}
   - {fileID: 4816900331678412}
   m_Father: {fileID: 4647106080786044}
-  m_RootOrder: 13
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!114 &6322351241342776375
 MonoBehaviour:
@@ -2329,7 +2331,7 @@ Transform:
   - {fileID: 4299880884497494}
   - {fileID: 4757583129360432}
   m_Father: {fileID: 4647106080786044}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!114 &6027074008776829795
 MonoBehaviour:
@@ -3821,7 +3823,7 @@ Transform:
   - {fileID: 4219084620904906}
   - {fileID: 4149983964433692}
   m_Father: {fileID: 4647106080786044}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!114 &618979986712956340
 MonoBehaviour:
@@ -4053,7 +4055,7 @@ Transform:
   - {fileID: 4763995708030708}
   - {fileID: 4161695473130886}
   m_Father: {fileID: 4647106080786044}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!114 &3034612856286878821
 MonoBehaviour:
@@ -4565,7 +4567,7 @@ Transform:
   - {fileID: 4585538863140066}
   - {fileID: 4305022639642614}
   m_Father: {fileID: 4647106080786044}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4318748396893743742
 MonoBehaviour:
@@ -4902,7 +4904,7 @@ Transform:
   - {fileID: 4757359274887502}
   - {fileID: 4507707955333660}
   m_Father: {fileID: 4647106080786044}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7476748775101742474
 MonoBehaviour:
@@ -5971,7 +5973,7 @@ Transform:
   - {fileID: 4471607999667126}
   - {fileID: 4410963202481586}
   m_Father: {fileID: 4647106080786044}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 90.00001, z: 0}
 --- !u!114 &668988314716620483
 MonoBehaviour:
@@ -6575,7 +6577,7 @@ Transform:
   - {fileID: 4870071958046726}
   - {fileID: 4074606314510388}
   m_Father: {fileID: 4647106080786044}
-  m_RootOrder: 8
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90.00001, z: 0}
 --- !u!114 &5635685567750823306
 MonoBehaviour:

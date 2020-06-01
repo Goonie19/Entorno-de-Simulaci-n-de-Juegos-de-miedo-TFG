@@ -2,14 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Decoration : MonoBehaviour
+public class Floor : MonoBehaviour
 {
-
-    public float radius;
-
-    public float yDistance;
-
-    public float wallDistance;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +15,4 @@ public class Decoration : MonoBehaviour
     {
         
     }
-
 }

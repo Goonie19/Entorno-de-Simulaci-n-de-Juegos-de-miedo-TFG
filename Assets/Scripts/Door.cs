@@ -14,6 +14,13 @@ public class Door : MonoBehaviour
 
     public float modifier = 0;
 
+    private float radius = 1.5f;
+
+    public float getRadius()
+    {
+        return radius;
+    }
+
     // Start is called before the first frame update
     void Start()
     {

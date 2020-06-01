@@ -868,7 +868,7 @@ Transform:
   - {fileID: 4635699120206374}
   - {fileID: 4868199103476110}
   m_Father: {fileID: 4033398813855618}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
 --- !u!114 &3850199491744704632
 MonoBehaviour:
@@ -1890,7 +1890,7 @@ Transform:
   - {fileID: 4340623946313326}
   - {fileID: 4477201256686058}
   m_Father: {fileID: 4033398813855618}
-  m_RootOrder: 8
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3671842487968859586
 MonoBehaviour:
@@ -2122,7 +2122,7 @@ Transform:
   - {fileID: 4465498602865816}
   - {fileID: 4492538138383216}
   m_Father: {fileID: 4033398813855618}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
 --- !u!114 &6734144132789331259
 MonoBehaviour:
@@ -2967,11 +2967,11 @@ Transform:
   - {fileID: 4875254985580042}
   - {fileID: 4282181044146818}
   - {fileID: 4020335558302354}
+  - {fileID: 4728556729735212}
   - {fileID: 4258406468169546}
+  - {fileID: 4573687807514078}
   - {fileID: 4116434660554256}
   - {fileID: 4034803958516324}
-  - {fileID: 4573687807514078}
-  - {fileID: 4728556729735212}
   - {fileID: 4051261630060834}
   - {fileID: 4358110072912286}
   - {fileID: 4628168670492316}
@@ -3001,6 +3001,8 @@ MonoBehaviour:
   numWalls: 0
   radius: 10
   maxLights: 8
+  maxFurnitureWall: 4
+  maxFurnitureFloor: 0
   big: 0
   id: 0
 --- !u!1 &1692339280597648
@@ -3964,7 +3966,7 @@ Transform:
   - {fileID: 4435594647360216}
   - {fileID: 4208606705512838}
   m_Father: {fileID: 4033398813855618}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: -180.00002, z: 0}
 --- !u!114 &5547051068540752951
 MonoBehaviour:
@@ -4382,7 +4384,7 @@ Transform:
   - {fileID: 4648987087060526}
   - {fileID: 4949278730586872}
   m_Father: {fileID: 4033398813855618}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3244998475876282562
 MonoBehaviour:
