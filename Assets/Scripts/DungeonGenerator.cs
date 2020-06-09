@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class DungeonGenerator : MonoBehaviour {
 
@@ -308,6 +309,13 @@ public class DungeonGenerator : MonoBehaviour {
         FurnitureGenerator = new FurnitureGenerator(Dungeon, angFurnitureList, wallFloorFurnitureList, FloorFurniture, lightning);
 
         FurnitureGenerator.generateFurniture();
+
+        player.transform.GetChild(0).GetComponent<Camera>().fieldOfView = LevelManager.getFov();
+
+        GetComponent<AudioSource>().clip = LevelManager.getMusic();
+        GetComponent<AudioSource>().volume = LevelManager.getVolume();
+        GetComponent<AudioSource>().pitch = LevelManager.getPitch();
+        GetComponent<AudioSource>().Play();
 
         Instantiate(player, SpawnPos, player.transform.rotation);
     }
