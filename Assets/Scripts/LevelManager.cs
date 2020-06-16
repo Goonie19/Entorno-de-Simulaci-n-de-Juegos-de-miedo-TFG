@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
 
     private static float Light = 0.3f;
 
+    private static float rLight = 7;
+
     private static int numRooms = 4;
 
     private static float fov = 50;
@@ -21,6 +23,9 @@ public class LevelManager : MonoBehaviour
     private static float pitch = 1;
 
     private static Color lightColor;
+
+    public List<Color> colors;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +51,16 @@ public class LevelManager : MonoBehaviour
     public static float getLight()
     {
         return Light;
+    }
+
+    public void setRadiusLights(float rLights)
+    {
+        rLight = rLights;
+    }
+
+    public static float getRadiusLights()
+    {
+        return rLight;
     }
 
     public void setRooms(float rooms) 
@@ -98,9 +113,9 @@ public class LevelManager : MonoBehaviour
         return pitch;
     }
 
-    public void setColor(Color color)
+    public void setColor(int color)
     {
-        lightColor = color;
+        lightColor = colors[color];
     }
 
     public static Color getColor()

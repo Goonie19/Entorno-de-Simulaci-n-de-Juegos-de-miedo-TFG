@@ -266,6 +266,9 @@ public class DungeonGenerator : MonoBehaviour {
 
         Dungeon.Add(Instantiate(firstRoom));
 
+        lightning.transform.GetChild(0).GetComponent<Light>().range = LevelManager.getRadiusLights();
+        lightning.transform.GetChild(0).GetComponent<Light>().color = LevelManager.getColor();
+
         for (int i = 0; i < 3; ++i)
             Doors.Enqueue(Dungeon[0].transform.GetChild(i).gameObject);
 
