@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2310246}
   - component: {fileID: 6423920}
   - component: {fileID: 5672139163007012316}
+  - component: {fileID: 7987818527285181953}
   m_Layer: 0
   m_Name: gabinet
   m_TagString: Untagged
@@ -109,3 +110,15 @@ MonoBehaviour:
   radius: 3
   yDistance: 0
   wallDistance: 1
+--- !u!114 &7987818527285181953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e9967bb0977634a8ae759365c01c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -26,6 +26,11 @@ public class DungeonGenerator : MonoBehaviour {
 
     private int lastIndex = 0;
 
+    private float fov;
+    private AudioClip music;
+    private float pitch;
+    private float volume;
+
     public bool Factibilidad(GameObject room, Vector3 position, int indexAvoid) {
 
         bool fact = true;
@@ -256,7 +261,7 @@ public class DungeonGenerator : MonoBehaviour {
     void Start()
     {
 
-        Vector3 SpawnPos = new Vector3(0, 0.5f, 0);
+        Vector3 SpawnPos = new Vector3(0, 1.16f, 0);
 
         ExportDungeon = new GameObject();
 
@@ -268,7 +273,6 @@ public class DungeonGenerator : MonoBehaviour {
 
         Instantiate(firstRoom).transform.parent = ExportDungeon.transform;
 
-        lightning.transform.GetChild(0).GetComponent<Light>().range = LevelManager.getRadiusLights();
         lightning.transform.GetChild(0).GetComponent<Light>().color = LevelManager.getColor();
 
         for (int i = 0; i < 3; ++i)
@@ -323,12 +327,31 @@ public class DungeonGenerator : MonoBehaviour {
         GetComponent<AudioSource>().pitch = LevelManager.getPitch();
         GetComponent<AudioSource>().Play();
 
-        Instantiate(player, SpawnPos, player.transform.rotation);
+        player = Instantiate(player, SpawnPos, player.transform.rotation);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (fov != LevelManager.getFov())
+        {
+            fov = LevelManager.getFov();
+            player.transform.GetChild(0).GetComponent<Camera>().fieldOfView = fov;
+        }
+
+        if(GetComponent<AudioSource>().pitch != LevelManager.getPitch())
+            GetComponent<AudioSource>().pitch = LevelManager.getPitch();
+
+        if (GetComponent<AudioSource>().volume != LevelManager.getVolume())
+            GetComponent<AudioSource>().volume = LevelManager.getVolume();
+
+        if(GetComponent<AudioSource>().clip != LevelManager.getMusic())
+        {
+            GetComponent<AudioSource>().Stop();
+            GetComponent<AudioSource>().clip = LevelManager.getMusic();
+            GetComponent<AudioSource>().Play();
+        }
+
+
     }
 }

@@ -1565,6 +1565,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4038867825657830}
   - component: {fileID: 7709183577569179738}
+  - component: {fileID: 61293161679952629}
   m_Layer: 0
   m_Name: long_room_angle_3
   m_TagString: Untagged
@@ -1623,8 +1624,21 @@ MonoBehaviour:
   maxLights: 7
   maxFurnitureWall: 4
   maxFurnitureFloor: 0
-  big: 0
+  room: 0
+  floors: 0
   id: 0
+--- !u!114 &61293161679952629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1323913383325946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e9967bb0977634a8ae759365c01c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1356063496396064
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2361978}
   - component: {fileID: 6432782}
   - component: {fileID: -3500799124124213595}
+  - component: {fileID: 3031236930615783744}
   m_Layer: 0
   m_Name: chest
   m_TagString: Untagged
@@ -112,6 +113,18 @@ MonoBehaviour:
   radius: 1.5
   yDistance: 0
   wallDistance: 0.25
+--- !u!114 &3031236930615783744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3e9967bb0977634a8ae759365c01c35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &194870
 GameObject:
   m_ObjectHideFlags: 0
