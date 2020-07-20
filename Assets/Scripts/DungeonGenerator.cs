@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityEngine.AI;
 
 public class DungeonGenerator : MonoBehaviour {
 
     public GameObject firstRoom;
     public GameObject player;
+
+    public List<GameObject> enemies;
+
+    private GameObject enemy;
 
     private GameObject ExportDungeon;
 
@@ -27,9 +32,6 @@ public class DungeonGenerator : MonoBehaviour {
     private int lastIndex = 0;
 
     private float fov;
-    private AudioClip music;
-    private float pitch;
-    private float volume;
 
     public bool Factibilidad(GameObject room, Vector3 position, int indexAvoid) {
 
@@ -327,7 +329,20 @@ public class DungeonGenerator : MonoBehaviour {
         GetComponent<AudioSource>().pitch = LevelManager.getPitch();
         GetComponent<AudioSource>().Play();
 
+        ExportDungeon.isStatic = true;
+
+        ExportDungeon.AddComponent<NavMeshSurface>().collectObjects = CollectObjects.Children;
+
+        ExportDungeon.GetComponent<NavMeshSurface>().BuildNavMesh();
+
         player = Instantiate(player, SpawnPos, player.transform.rotation);
+
+        enemies[0].transform.GetComponent<EnemyScriptChaser>().target = player;
+
+        enemy = enemies[0];
+
+        player.GetComponent<FirstPersonController>().setEnemyBack(false);
+        
     }
 
     // Update is called once per frame
@@ -345,13 +360,37 @@ public class DungeonGenerator : MonoBehaviour {
         if (GetComponent<AudioSource>().volume != LevelManager.getVolume())
             GetComponent<AudioSource>().volume = LevelManager.getVolume();
 
-        if(GetComponent<AudioSource>().clip != LevelManager.getMusic())
+        if(GetComponent<AudioSource>().clip != LevelManager.getMusic() && GetComponent<AudioSource>().clip != null)
         {
             GetComponent<AudioSource>().Stop();
             GetComponent<AudioSource>().clip = LevelManager.getMusic();
             GetComponent<AudioSource>().Play();
         }
 
+        InvokeRepeating("enemyInstantiateBack", 0.0f, 30f);
 
+    }
+
+    void enemyInstantiateBack()
+    {
+        if(!player.GetComponent<FirstPersonController>().getEnemyBack())
+        {
+            if(enemy != null)
+            {
+                if(Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, enemy.transform.position) > 60)
+                {
+                    Vector3 spawnpos = player.transform.localPosition;
+                    spawnpos.z -= 3;
+                    spawnpos.y = 0;
+                    enemy.GetComponent<NavMeshAgent>().enabled = false;
+                    enemy.GetComponent<EnemyScriptChaser>().enabled = false;
+                    enemy.GetComponent<Animator>().SetBool("isRunning", false);
+                    enemy.GetComponent<BoxCollider>().enabled = false;
+                    enemy = Instantiate(enemy, spawnpos, player.transform.rotation);
+                    enemy.transform.parent = player.transform;
+                    player.GetComponent<FirstPersonController>().setEnemyBack(true);
+                }
+            }
+        }
     }
 }

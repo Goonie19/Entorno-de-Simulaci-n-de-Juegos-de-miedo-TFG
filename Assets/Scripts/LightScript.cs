@@ -21,10 +21,11 @@ public class LightScript : MonoBehaviour
             radius = LevelManager.getRadiusLights();
             this.gameObject.transform.GetChild(0).GetComponent<Light>().range = radius;
         }
-        if(color != LevelManager.getColor())
+        if(color != LevelManager.getColor() && LevelManager.getColor() != null)
         {
             color = LevelManager.getColor();
             this.gameObject.transform.GetChild(0).GetComponent<Light>().color = color;
         }
+
     }
 }

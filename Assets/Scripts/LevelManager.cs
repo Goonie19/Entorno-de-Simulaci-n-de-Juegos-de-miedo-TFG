@@ -20,6 +20,8 @@ public class LevelManager : MonoBehaviour
 
     private static float musicVolume;
 
+    private static float effectVolume;
+
     private static float pitch = 1;
 
     private static Color lightColor;
@@ -29,7 +31,13 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        lightColor = this.colors[0];
+        selectedSong = music[0];
+    }
+
+    public void Close()
+    {
+        Application.Quit();
     }
 
     // Update is called once per frame
@@ -101,6 +109,16 @@ public class LevelManager : MonoBehaviour
     public static float getVolume()
     {
         return musicVolume;
+    }
+
+    public void setEffectVolume(float volume)
+    {
+        effectVolume = volume;
+    }
+
+    public static float getEffectVolume()
+    {
+        return effectVolume;
     }
 
     public void setPitch(float fpitch)

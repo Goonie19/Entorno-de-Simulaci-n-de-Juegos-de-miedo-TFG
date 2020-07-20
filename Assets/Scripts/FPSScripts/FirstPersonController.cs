@@ -41,6 +41,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private float m_NextStep;
         private bool m_Jumping;
         private AudioSource m_AudioSource;
+        private bool EnemyBack;
 
         // Use this for initialization
         private void Start()
@@ -53,6 +54,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_StepCycle = 0f;
             m_NextStep = m_StepCycle/2f;
             m_Jumping = false;
+            EnemyBack = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
         }
@@ -81,6 +83,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
 
             m_PreviouslyGrounded = m_CharacterController.isGrounded;
+
+            if (this.gameObject.GetComponent<AudioSource>().volume != LevelManager.getEffectVolume())
+                this.gameObject.GetComponent<AudioSource>().volume = LevelManager.getEffectVolume();
+            if (this.gameObject.GetComponent<Light>().color != LevelManager.getColor())
+                this.gameObject.GetComponent<Light>().color = LevelManager.getColor();
+        }
+
+        public bool getEnemyBack()
+        {
+            return EnemyBack;
+        }
+
+        public void setEnemyBack(bool enemy)
+        {
+            EnemyBack = enemy;
         }
 
 
@@ -174,6 +191,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             // move picked sound to index 0 so it's not picked next time
             m_FootstepSounds[n] = m_FootstepSounds[0];
             m_FootstepSounds[0] = m_AudioSource.clip;
+            
         }
 
 
