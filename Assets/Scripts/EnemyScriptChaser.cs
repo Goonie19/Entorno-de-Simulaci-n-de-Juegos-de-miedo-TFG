@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class EnemyScriptChaser : MonoBehaviour
 {
@@ -21,10 +22,13 @@ public class EnemyScriptChaser : MonoBehaviour
     public AudioClip EnemyScream;
 
     public GameObject target;
+
+    private Quaternion rotation;
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        rotation = this.transform.rotation;
 
         InvokeRepeating("RepeatIdle", 0.0f, 10f);
     }
@@ -42,7 +46,10 @@ public class EnemyScriptChaser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        agent.SetDestination(target.transform.position);
+        if(agent.enabled)
+        {
+            agent.SetDestination(target.transform.position);
+        }
 
         if (this.gameObject.GetComponent<Rigidbody>().velocity.magnitude > 0)
         {
@@ -67,5 +74,10 @@ public class EnemyScriptChaser : MonoBehaviour
 
         if (this.gameObject.GetComponent<AudioSource>().volume != LevelManager.getEffectVolume())
             this.gameObject.GetComponent<AudioSource>().volume = LevelManager.getEffectVolume() / Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, this.gameObject.transform.position);
+        
+        if (target.GetComponent<FirstPersonController>().getTurnAraunds() == 5)
+        {
+            
+        }
     }
 }

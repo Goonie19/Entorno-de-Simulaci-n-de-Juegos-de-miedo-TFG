@@ -42,6 +42,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
         private bool EnemyBack;
+        private int turnAraunds = 0;
+        private float rotation;
+        private int comprobationFrames;
+        private int contFrames;
+
+
 
         // Use this for initialization
         private void Start()
@@ -57,12 +63,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
             EnemyBack = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+            rotation = this.gameObject.transform.rotation.eulerAngles.y;
+            contFrames = 0;
+            comprobationFrames = 75;
         }
 
 
         // Update is called once per frame
         private void Update()
         {
+            if(EnemyBack)
+                ++contFrames;
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -88,6 +99,15 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 this.gameObject.GetComponent<AudioSource>().volume = LevelManager.getEffectVolume();
             if (this.gameObject.GetComponent<Light>().color != LevelManager.getColor())
                 this.gameObject.GetComponent<Light>().color = LevelManager.getColor();
+            if (comprobationFrames == contFrames && EnemyBack)
+            {
+                if((rotation - this.gameObject.transform.rotation.eulerAngles.y > 90 || rotation - this.gameObject.transform.rotation.eulerAngles.y < -90))
+                {
+                    turnAraunds++;
+                }
+                contFrames = 0;
+                rotation = this.gameObject.transform.rotation.eulerAngles.y;
+            }
         }
 
         public bool getEnemyBack()
@@ -98,6 +118,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public void setEnemyBack(bool enemy)
         {
             EnemyBack = enemy;
+        }
+
+        public int getTurnAraunds()
+        {
+            return turnAraunds;
+        }
+
+        public void resetTurnAraunds()
+        {
+            turnAraunds = 0;
         }
 
 

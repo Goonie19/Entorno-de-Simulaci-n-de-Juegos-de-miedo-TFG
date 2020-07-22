@@ -262,7 +262,7 @@ public class DungeonGenerator : MonoBehaviour {
     // Start is called before the first frame update
     void Start()
     {
-
+        PauseMenu.gameIsPaused = false;
         Vector3 SpawnPos = new Vector3(0, 1.16f, 0);
 
         ExportDungeon = new GameObject();
@@ -369,6 +369,15 @@ public class DungeonGenerator : MonoBehaviour {
 
         InvokeRepeating("enemyInstantiateBack", 0.0f, 30f);
 
+        if (player.GetComponent<FirstPersonController>().getTurnAraunds() == 5)
+        {
+            enemy.transform.parent.gameObject.transform.parent = null;
+            enemy.GetComponent<NavMeshAgent>().enabled = true;
+            enemy.GetComponent<BoxCollider>().enabled = true;
+            enemy.GetComponent<Rigidbody>().useGravity = true;
+            player.GetComponent<FirstPersonController>().resetTurnAraunds();
+        }
+
     }
 
     void enemyInstantiateBack()
@@ -379,15 +388,14 @@ public class DungeonGenerator : MonoBehaviour {
             {
                 if(Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, enemy.transform.position) > 60)
                 {
-                    Vector3 spawnpos = player.transform.localPosition;
-                    spawnpos.z -= 3;
+                    Vector3 spawnpos = player.transform.position - player.transform.forward * 3;
                     spawnpos.y = 0;
                     enemy.GetComponent<NavMeshAgent>().enabled = false;
-                    enemy.GetComponent<EnemyScriptChaser>().enabled = false;
                     enemy.GetComponent<Animator>().SetBool("isRunning", false);
+                    enemy.GetComponent<Rigidbody>().useGravity = false;
                     enemy.GetComponent<BoxCollider>().enabled = false;
                     enemy = Instantiate(enemy, spawnpos, player.transform.rotation);
-                    enemy.transform.parent = player.transform;
+                    enemy.transform.parent = player.transform.GetChild(1).transform;
                     player.GetComponent<FirstPersonController>().setEnemyBack(true);
                 }
             }

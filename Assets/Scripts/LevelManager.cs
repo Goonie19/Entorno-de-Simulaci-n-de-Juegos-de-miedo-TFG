@@ -31,7 +31,7 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lightColor = this.colors[0];
+        lightColor = colors[0];
         selectedSong = music[0];
     }
 
