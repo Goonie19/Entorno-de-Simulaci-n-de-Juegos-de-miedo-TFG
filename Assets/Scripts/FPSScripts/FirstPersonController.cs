@@ -42,7 +42,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
         private bool EnemyBack;
-        private int turnAraunds = 0;
+        public int turnAraunds = 0;
         private float rotation;
         private int comprobationFrames;
         private int contFrames;

@@ -369,14 +369,9 @@ public class DungeonGenerator : MonoBehaviour {
 
         InvokeRepeating("enemyInstantiateBack", 0.0f, 30f);
 
-        if (player.GetComponent<FirstPersonController>().getTurnAraunds() == 5)
-        {
-            enemy.transform.parent.gameObject.transform.parent = null;
-            enemy.GetComponent<NavMeshAgent>().enabled = true;
-            enemy.GetComponent<BoxCollider>().enabled = true;
-            enemy.GetComponent<Rigidbody>().useGravity = true;
-            player.GetComponent<FirstPersonController>().resetTurnAraunds();
-        }
+        if (player.GetComponent<FirstPersonController>().getTurnAraunds() == 5 )
+            enemy.transform.parent.GetComponent<Pivot>().enabled = true;
+        
 
     }
 
@@ -388,10 +383,9 @@ public class DungeonGenerator : MonoBehaviour {
             {
                 if(Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, enemy.transform.position) > 60)
                 {
-                    Vector3 spawnpos = player.transform.position - player.transform.forward * 3;
+                    Vector3 spawnpos = player.transform.position - player.transform.forward ;
                     spawnpos.y = 0;
                     enemy.GetComponent<NavMeshAgent>().enabled = false;
-                    enemy.GetComponent<Animator>().SetBool("isRunning", false);
                     enemy.GetComponent<Rigidbody>().useGravity = false;
                     enemy.GetComponent<BoxCollider>().enabled = false;
                     enemy = Instantiate(enemy, spawnpos, player.transform.rotation);
