@@ -65,7 +65,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 			m_MouseLook.Init(transform , m_Camera.transform);
             rotation = this.gameObject.transform.rotation.eulerAngles.y;
             contFrames = 0;
-            comprobationFrames = 75;
+            comprobationFrames = 60;
         }
 
 
@@ -271,14 +271,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             {
                 m_Input.Normalize();
             }
-
-            // handle speed change to give an fov kick
-            // only if the player is going to a run, is running and the fovkick is to be used
-            if (m_IsWalking != waswalking && m_UseFovKick && m_CharacterController.velocity.sqrMagnitude > 0)
-            {
-                StopAllCoroutines();
-                StartCoroutine(!m_IsWalking ? m_FovKick.FOVKickUp() : m_FovKick.FOVKickDown());
-            }
+            
         }
 
 

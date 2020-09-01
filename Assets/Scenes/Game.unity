@@ -1287,6 +1287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 489528230}
   - component: {fileID: 489528231}
+  - component: {fileID: 489528232}
   m_Layer: 5
   m_Name: FOV
   m_TagString: Untagged
@@ -1390,6 +1391,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &489528232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489528229}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2985b465d7eef944a26dcfa3a603a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagUI: FOV
 --- !u!1 &528262584
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,6 +3010,7 @@ GameObject:
   - component: {fileID: 932059436}
   - component: {fileID: 932059435}
   - component: {fileID: 932059434}
+  - component: {fileID: 932059437}
   m_Layer: 5
   m_Name: Musica
   m_TagString: Untagged
@@ -3131,6 +3146,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 932059432}
   m_CullTransparentMesh: 0
+--- !u!114 &932059437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 932059432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2985b465d7eef944a26dcfa3a603a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagUI: Music
 --- !u!1 &937582510
 GameObject:
   m_ObjectHideFlags: 0
@@ -3684,6 +3712,8 @@ MonoBehaviour:
   - {fileID: 100000, guid: 455e91ef9a68edd4ca1a9bba2ffccad8, type: 3}
   - {fileID: 100000, guid: 4a90ae8b8179ff54e8f81ca11ea0252f, type: 3}
   - {fileID: 100000, guid: b93fbb2e189612641be84b2521736734, type: 3}
+  fov: 0
+  MaxTurnAraunds: 5
 --- !u!82 &1023996257
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4414,6 +4444,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1150150626}
   - component: {fileID: 1150150627}
+  - component: {fileID: 1150150628}
   m_Layer: 5
   m_Name: "VolumenM\xFAsica"
   m_TagString: Untagged
@@ -4517,6 +4548,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1150150628
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150150625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2985b465d7eef944a26dcfa3a603a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagUI: MusicVolume
 --- !u!1 &1217576956
 GameObject:
   m_ObjectHideFlags: 0
@@ -4602,6 +4646,7 @@ GameObject:
   - component: {fileID: 1244999343}
   - component: {fileID: 1244999342}
   - component: {fileID: 1244999341}
+  - component: {fileID: 1244999344}
   m_Layer: 5
   m_Name: LightColor
   m_TagString: Untagged
@@ -4744,6 +4789,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244999339}
   m_CullTransparentMesh: 0
+--- !u!114 &1244999344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1244999339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2985b465d7eef944a26dcfa3a603a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagUI: LightColor
 --- !u!1 &1253653604
 GameObject:
   m_ObjectHideFlags: 0
@@ -5548,6 +5606,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1702076731}
   - component: {fileID: 1702076732}
+  - component: {fileID: 1702076733}
   m_Layer: 5
   m_Name: Velocidad de Musica
   m_TagString: Untagged
@@ -5651,6 +5710,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1702076733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702076730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2985b465d7eef944a26dcfa3a603a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagUI: MusicPitch
 --- !u!1 &1735153882
 GameObject:
   m_ObjectHideFlags: 0
@@ -6213,6 +6285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1977344754}
   - component: {fileID: 1977344755}
+  - component: {fileID: 1977344756}
   m_Layer: 5
   m_Name: Volumen de efectos
   m_TagString: Untagged
@@ -6316,6 +6389,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1977344756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977344753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2985b465d7eef944a26dcfa3a603a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagUI: EffectsVolume
 --- !u!1 &1977754735
 GameObject:
   m_ObjectHideFlags: 0
@@ -6326,6 +6412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1977754736}
   - component: {fileID: 1977754737}
+  - component: {fileID: 1977754738}
   m_Layer: 5
   m_Name: LightRadius
   m_TagString: Untagged
@@ -6429,6 +6516,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1977754738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1977754735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2985b465d7eef944a26dcfa3a603a66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagUI: LightRadius
 --- !u!1 &1979397549
 GameObject:
   m_ObjectHideFlags: 0

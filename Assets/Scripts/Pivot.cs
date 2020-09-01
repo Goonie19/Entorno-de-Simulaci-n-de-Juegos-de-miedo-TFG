@@ -18,7 +18,7 @@ public class Pivot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameObject.Find("FPSController(Clone)").GetComponent<FirstPersonController>().getTurnAraunds() == 5 && !changedRotation)
+        if(GameObject.Find("FPSController(Clone)").GetComponent<FirstPersonController>().getTurnAraunds() >= GameObject.Find("Spawner").GetComponent<DungeonGenerator>().MaxTurnAraunds && !changedRotation)
         {
             rotation = GameObject.Find("FPSController(Clone)").transform.rotation;
             changedRotation = true;

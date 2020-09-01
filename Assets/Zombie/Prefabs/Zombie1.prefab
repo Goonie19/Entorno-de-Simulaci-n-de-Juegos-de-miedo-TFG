@@ -1783,7 +1783,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WalkingClip: {fileID: 8300000, guid: ce1415c1538344a3f9c07f2388ee0dee, type: 3}
   EnemyNoise: {fileID: 8300000, guid: d254381ee39254b86b2ad79941106ced, type: 3}
-  EnemyScream: {fileID: 8300000, guid: 2628db55e50fe41cc9879051d359847a, type: 3}
+  EnemyScream: {fileID: 8300000, guid: 2efa130723071624bafdebd42338bc1e, type: 3}
   target: {fileID: 0}
 --- !u!82 &4776544992284932020
 AudioSource:
@@ -1796,7 +1796,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0

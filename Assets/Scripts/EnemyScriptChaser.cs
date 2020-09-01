@@ -11,8 +11,6 @@ public class EnemyScriptChaser : MonoBehaviour
 
     private float SoundRadius = 30;
 
-    private bool audioIsNotPlaying = true;
-
     private bool playerNotSeen;
 
     public AudioClip WalkingClip;
@@ -54,12 +52,8 @@ public class EnemyScriptChaser : MonoBehaviour
         }
 
         //Activating animator and sounds
-
-        if (this.gameObject.GetComponent<Rigidbody>().velocity.magnitude > 0.1f)
-        {
             this.gameObject.GetComponent<Animator>().SetBool("isRunning", true);
-        } else
-            this.gameObject.GetComponent<Animator>().SetBool("isRunning", false);
+        
 
         if (Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, this.gameObject.transform.position) < SoundRadius && !this.gameObject.GetComponent<AudioSource>().isPlaying && !PauseMenu.gameIsPaused)
         {
@@ -67,13 +61,12 @@ public class EnemyScriptChaser : MonoBehaviour
             this.gameObject.GetComponent<AudioSource>().pitch = 1;
             this.gameObject.GetComponent<AudioSource>().volume = this.gameObject.GetComponent<AudioSource>().volume / Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, this.gameObject.transform.position);
             this.gameObject.GetComponent<AudioSource>().Play();
-            audioIsNotPlaying = false;
         }
 
         if (Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, this.gameObject.transform.position) > SoundRadius)
         {
             this.gameObject.GetComponent<AudioSource>().Stop();
-            audioIsNotPlaying = true;
+            Destroy(this.gameObject);
         }
 
         if (this.gameObject.GetComponent<AudioSource>().volume != LevelManager.getEffectVolume() / Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, this.gameObject.transform.position))
@@ -89,7 +82,7 @@ public class EnemyScriptChaser : MonoBehaviour
         if (Vector3.Angle(this.transform.forward, GameObject.Find("FPSController(Clone)").transform.forward) > 130 &&
             GameObject.Find("FPSController(Clone)").GetComponent<FirstPersonController>().getEnemyBack())
         {
-            this.gameObject.GetComponent<AudioSource>().pitch = this.gameObject.GetComponent<AudioSource>().pitch / 2;
+            this.gameObject.GetComponent<AudioSource>().pitch = this.gameObject.GetComponent<AudioSource>().pitch;
             this.gameObject.GetComponent<AudioSource>().PlayOneShot(EnemyScream);
 
             this.transform.parent.GetComponent<Pivot>().enabled = false;
@@ -114,7 +107,5 @@ public class EnemyScriptChaser : MonoBehaviour
 
             this.gameObject.GetComponent<Animator>().SetBool("Attack", false);
         }
-
-
     }
 }

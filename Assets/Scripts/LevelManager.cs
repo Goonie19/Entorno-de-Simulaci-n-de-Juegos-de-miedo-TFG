@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class LevelManager : MonoBehaviour
     private static int numRooms = 4;
 
     private static float fov = 50;
+
+    private static int icolor;
+
+    private static int iSong;
 
     public List<AudioClip> music;
 
@@ -28,11 +33,12 @@ public class LevelManager : MonoBehaviour
 
     public List<Color> colors;
 
+    private static bool jumpScares;
+
     // Start is called before the first frame update
     void Start()
     {
-        lightColor = colors[0];
-        selectedSong = music[0];
+        
     }
 
     public void Close()
@@ -48,7 +54,20 @@ public class LevelManager : MonoBehaviour
 
     public void SelectOption(string sNameOption)
     {
+        lightColor = colors[icolor];
+        selectedSong = music[iSong];
+
         SceneManager.LoadScene(sNameOption);
+    }
+
+    public void setJumpScares(bool scare)
+    {
+        jumpScares = scare;
+    }
+
+    public static bool getJumpScare()
+    {
+        return jumpScares;
     }
 
     public void setLights(float pLights)
@@ -93,12 +112,18 @@ public class LevelManager : MonoBehaviour
 
     public void setMusic(int song)
     {
-        selectedSong = music[song];
+        iSong = song;
+        selectedSong = music[iSong];
     }
 
     public static AudioClip getMusic()
     {
         return selectedSong;
+    }
+
+    public static int getIMusic()
+    {
+        return iSong;
     }
 
     public void setVolume(float volume)
@@ -132,12 +157,18 @@ public class LevelManager : MonoBehaviour
     }
 
     public void setColor(int color)
-    {
-        lightColor = colors[color];
+    { 
+        icolor = color;
+        lightColor = colors[icolor];
     }
 
     public static Color getColor()
     {
         return lightColor;
+    }
+
+    public static int getIColor()
+    {
+        return icolor;
     }
 }

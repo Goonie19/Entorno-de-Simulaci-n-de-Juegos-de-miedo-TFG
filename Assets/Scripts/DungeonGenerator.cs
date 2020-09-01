@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.Characters.FirstPerson;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class DungeonGenerator : MonoBehaviour {
 
@@ -31,7 +32,9 @@ public class DungeonGenerator : MonoBehaviour {
 
     private int lastIndex = 0;
 
-    private float fov;
+    public float fov;
+
+    public int MaxTurnAraunds;
 
     public bool Factibilidad(GameObject room, Vector3 position, int indexAvoid) {
 
@@ -342,7 +345,13 @@ public class DungeonGenerator : MonoBehaviour {
         enemy = enemies[0];
 
         player.GetComponent<FirstPersonController>().setEnemyBack(false);
-        
+
+        Debug.Log(LevelManager.getJumpScare());
+
+            InvokeRepeating("enemyInstantiateBack", 0.0f, 30f);
+
+       
+
     }
 
     // Update is called once per frame
@@ -367,9 +376,10 @@ public class DungeonGenerator : MonoBehaviour {
             GetComponent<AudioSource>().Play();
         }
 
-        InvokeRepeating("enemyInstantiateBack", 0.0f, 30f);
+        if (player.GetComponent<FirstPersonController>().getTurnAraunds() == 0 && player.GetComponent<FirstPersonController>().getEnemyBack())
+            MaxTurnAraunds = (int) Random.Range(2f, 10f);
 
-        if (player.GetComponent<FirstPersonController>().getTurnAraunds() == 5 )
+        if (player.GetComponent<FirstPersonController>().getTurnAraunds() > MaxTurnAraunds)
             enemy.transform.parent.GetComponent<Pivot>().enabled = true;
         
 
@@ -377,20 +387,23 @@ public class DungeonGenerator : MonoBehaviour {
 
     void enemyInstantiateBack()
     {
-        if(!player.GetComponent<FirstPersonController>().getEnemyBack())
+        if (LevelManager.getJumpScare())
         {
-            if(enemy != null)
+            if (!player.GetComponent<FirstPersonController>().getEnemyBack())
             {
-                if(Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, enemy.transform.position) > 60)
+                if (enemy != null)
                 {
-                    Vector3 spawnpos = player.transform.position - player.transform.forward ;
-                    spawnpos.y = 0;
-                    enemy.GetComponent<NavMeshAgent>().enabled = false;
-                    enemy.GetComponent<Rigidbody>().useGravity = false;
-                    enemy.GetComponent<BoxCollider>().enabled = false;
-                    enemy = Instantiate(enemy, spawnpos, player.transform.rotation);
-                    enemy.transform.parent = player.transform.GetChild(1).transform;
-                    player.GetComponent<FirstPersonController>().setEnemyBack(true);
+                    if (Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, enemy.transform.position) > 60)
+                    {
+                        Vector3 spawnpos = player.transform.position - (player.transform.forward * 1.4f);
+                        spawnpos.y = 0;
+                        enemy.GetComponent<NavMeshAgent>().enabled = false;
+                        enemy.GetComponent<Rigidbody>().useGravity = false;
+                        enemy.GetComponent<BoxCollider>().enabled = false;
+                        enemy = Instantiate(enemy, spawnpos, player.transform.rotation);
+                        enemy.transform.parent = player.transform.GetChild(1).transform;
+                        player.GetComponent<FirstPersonController>().setEnemyBack(true);
+                    }
                 }
             }
         }
