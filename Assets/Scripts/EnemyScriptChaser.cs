@@ -66,7 +66,8 @@ public class EnemyScriptChaser : MonoBehaviour
         if (Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, this.gameObject.transform.position) > SoundRadius)
         {
             this.gameObject.GetComponent<AudioSource>().Stop();
-            Destroy(this.gameObject);
+            target.GetComponent<FirstPersonController>().setEnemyBack(false);
+            this.gameObject.SetActive(false);
         }
 
         if (this.gameObject.GetComponent<AudioSource>().volume != LevelManager.getEffectVolume() / Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, this.gameObject.transform.position))
@@ -77,12 +78,10 @@ public class EnemyScriptChaser : MonoBehaviour
 
         Physics.Raycast(this.transform.position, this.transform.forward, out hit);
 
-        Debug.Log(Vector3.Angle(this.transform.forward, GameObject.Find("FPSController(Clone)").transform.forward));
-
-        if (Vector3.Angle(this.transform.forward, GameObject.Find("FPSController(Clone)").transform.forward) > 130 &&
-            GameObject.Find("FPSController(Clone)").GetComponent<FirstPersonController>().getEnemyBack())
+        if (Vector3.Angle(this.transform.forward, GameObject.Find("FPSController(Clone)").transform.forward) > 145 &&
+            target.GetComponent<FirstPersonController>().getEnemyBack() &&
+            hit.collider.tag == target.GetComponent<Collider>().tag)
         {
-            this.gameObject.GetComponent<AudioSource>().pitch = this.gameObject.GetComponent<AudioSource>().pitch;
             this.gameObject.GetComponent<AudioSource>().PlayOneShot(EnemyScream);
 
             this.transform.parent.GetComponent<Pivot>().enabled = false;

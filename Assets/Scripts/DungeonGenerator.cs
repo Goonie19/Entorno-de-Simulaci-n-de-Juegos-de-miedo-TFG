@@ -14,6 +14,8 @@ public class DungeonGenerator : MonoBehaviour {
 
     private GameObject enemy;
 
+    private GameObject enemyInstance;
+
     private GameObject ExportDungeon;
 
     private FurnitureGenerator FurnitureGenerator;
@@ -346,9 +348,7 @@ public class DungeonGenerator : MonoBehaviour {
 
         player.GetComponent<FirstPersonController>().setEnemyBack(false);
 
-        Debug.Log(LevelManager.getJumpScare());
-
-            InvokeRepeating("enemyInstantiateBack", 0.0f, 30f);
+            InvokeRepeating("enemyInstantiateBack", 0.0f, 100f);
 
        
 
@@ -380,7 +380,7 @@ public class DungeonGenerator : MonoBehaviour {
             MaxTurnAraunds = (int) Random.Range(2f, 10f);
 
         if (player.GetComponent<FirstPersonController>().getTurnAraunds() > MaxTurnAraunds)
-            enemy.transform.parent.GetComponent<Pivot>().enabled = true;
+            enemyInstance.transform.parent.GetComponent<Pivot>().enabled = true;
         
 
     }
@@ -400,8 +400,11 @@ public class DungeonGenerator : MonoBehaviour {
                         enemy.GetComponent<NavMeshAgent>().enabled = false;
                         enemy.GetComponent<Rigidbody>().useGravity = false;
                         enemy.GetComponent<BoxCollider>().enabled = false;
-                        enemy = Instantiate(enemy, spawnpos, player.transform.rotation);
-                        enemy.transform.parent = player.transform.GetChild(1).transform;
+                        if (enemyInstance != null)
+                            Destroy(enemyInstance);
+                        enemyInstance = Instantiate(enemy, spawnpos, player.transform.rotation);
+                        enemyInstance.transform.parent = player.transform.GetChild(1).transform;
+
                         player.GetComponent<FirstPersonController>().setEnemyBack(true);
                     }
                 }
