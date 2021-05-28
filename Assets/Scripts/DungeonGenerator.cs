@@ -348,7 +348,7 @@ public class DungeonGenerator : MonoBehaviour {
 
         player.GetComponent<FirstPersonController>().setEnemyBack(false);
 
-            InvokeRepeating("enemyInstantiateBack", 0.0f, 100f);
+            InvokeRepeating("enemyInstantiateBack", Random.Range(30f, 120f), 100f);
 
        
 
@@ -393,7 +393,7 @@ public class DungeonGenerator : MonoBehaviour {
             {
                 if (enemy != null)
                 {
-                    if (Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, enemy.transform.position) > 60)
+                    if (enemyInstance== null || Vector3.Distance(GameObject.Find("FPSController(Clone)").transform.position, enemy.transform.position) > 60)
                     {
                         Vector3 spawnpos = player.transform.position - (player.transform.forward * 1.4f);
                         spawnpos.y = 0;
@@ -403,7 +403,9 @@ public class DungeonGenerator : MonoBehaviour {
                         if (enemyInstance != null)
                             Destroy(enemyInstance);
                         enemyInstance = Instantiate(enemy, spawnpos, player.transform.rotation);
+                        player.transform.GetChild(1).transform.rotation = player.transform.rotation;
                         enemyInstance.transform.parent = player.transform.GetChild(1).transform;
+
 
                         player.GetComponent<FirstPersonController>().setEnemyBack(true);
                     }
